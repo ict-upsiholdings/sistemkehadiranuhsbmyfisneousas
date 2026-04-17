@@ -344,7 +344,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>Admin Portal Sistem Kehadiran</h1>
+            <h1>Admin Portal Sistem Kehadiran MyFIS Neo@USAS</h1>
             <p class="subtitle">Dicipta oleh UPSI Holdings Sdn. Bhd.</p>
             <button class="refresh-btn" style="float:right;" onclick="logout()">Log Keluar</button>
         </div>
@@ -387,8 +387,8 @@
                         <div class="stat-label">UPSI</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-value" id="aswaraCount">0</div>
-                        <div class="stat-label">ASWARA</div>
+                        <div class="stat-value" id="usasCount">0</div>
+                        <div class="stat-label">USAS</div>
                     </div>
                 </div>
 
@@ -431,9 +431,9 @@
         let allAttendanceData = {};
         let currentFilteredData = [];
         
-        const SESSION_API = 'https://script.google.com/macros/s/AKfycbwAcZuDryEzXB8ZpaGY88DMCOv9LzO7jhA4MXqNcwT0H809DXlVSz2AroZ-veYAkju2/exec';
-        const BASE_URL = 'https://ict-upsiholdings.github.io/sistemkehadiranuhsbmysisaswara/index.html';
-        const API_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxYHxFRZJxODIaOTB64KWYteK2w7Ncc8d5dOHSbsgJYZLaEAA48oo0h7ttd5J1pEi5l/exec';
+        const SESSION_API = 'https://script.google.com/macros/s/AKfycbyfYm3aWbPcMaM98d7s_AroqtxhOvAlE7LImSvlBdPjkayJVl6d_yYj-Z8azH_eDppZ/exec';
+        const BASE_URL = 'https://ict-upsiholdings.github.io/sistemkehadiranuhsbmyfisneousas/index.html';
+        const API_ENDPOINT = 'https://script.google.com/macros/s/AKfycby5Gs5AiYudtP0ZwT31NuI_glRH4QCQQPpDYLw1I2dECO0rsjIycKewioiwqhcIGFfT/exec';
 
         async function loadSessionData() {
             try {
@@ -687,8 +687,8 @@
             document.getElementById('totalAttendees').textContent = data.length;
             document.getElementById('upsiCount').textContent = 
                 data.filter(r => r['Trainer/Trainee'] === 'UPSI').length;
-            document.getElementById('aswaraCount').textContent = 
-                data.filter(r => r['Trainer/Trainee'] === 'ASWARA').length;
+            document.getElementById('usasCount').textContent = 
+                data.filter(r => r['Trainer/Trainee'] === 'USAS').length;
         }
 
         function filterAttendance() {
@@ -770,7 +770,7 @@ const headerHeight = await addHeaderImage(doc, headerImage, 14, 10, 180);
 
     doc.setFontSize(11);
     doc.setFont(undefined, 'normal');
-    doc.text('Kehadiran Sesi Latihan MySIS@ASWARA', 14, textStartY + 8);
+    doc.text('Kehadiran Bengkel Business Process Analysis (BPA) MyFIS Neo@USAS', 14, textStartY + 8);
 
     // Tarikh semasa
     const currentDate = new Date().toLocaleString('ms-MY', {
@@ -829,7 +829,7 @@ const headerHeight = await addHeaderImage(doc, headerImage, 14, 10, 180);
     yPos += 5;
     doc.text(`UPSI: ${currentFilteredData.filter(r => r['Trainer/Trainee'] === 'UPSI').length}`, 14, yPos);
     yPos += 5;
-    doc.text(`ASWARA: ${currentFilteredData.filter(r => r['Trainer/Trainee'] === 'ASWARA').length}`, 14, yPos);
+    doc.text(`USAS: ${currentFilteredData.filter(r => r['Trainer/Trainee'] === 'USAS').length}`, 14, yPos);
 
     // === 📑 Sediakan jadual ===
 
