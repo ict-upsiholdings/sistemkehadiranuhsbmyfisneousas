@@ -591,9 +591,10 @@
                 document.getElementById('loadingMessage').style.display = 'block';
 
                 console.log('Loading session data from:', SESSION_API);
-                const response = await fetch(SESSION_API, {
+                const response = await fetch(`${SESSION_API}?t=${Date.now()}`, {
                     method: 'GET',
-                    redirect: 'follow'
+                    redirect: 'follow',
+                    cache: 'no-store'
                 });
                 
                 if (!response.ok) {
