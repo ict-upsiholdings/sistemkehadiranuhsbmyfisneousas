@@ -604,9 +604,9 @@
                 console.log('Session data loaded:', data);
 
                 sessionData = {};
-                data.forEach(item => {
+                // data.forEach(item => {
                     if (item.url) sessionData[item.url.toString()] = item;
-                });
+                // });
 
                 console.log('Session data mapped:', sessionData);
                 
@@ -683,7 +683,7 @@
 
         function initializeForm() {
             const urlParams = new URLSearchParams(window.location.search);
-            const urlParam = urlParams.get('url');
+            const urlParam = urlParams.get('url')?.trim();
             
             console.log('URL Parameter:', urlParam);
             console.log('Available sessions:', Object.keys(sessionData));
