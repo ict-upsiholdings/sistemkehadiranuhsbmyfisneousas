@@ -14,7 +14,7 @@
         }
 
         body {
-            font-family: 'League Spartan', sans-serif;
+            font-family: 'League Spartan', sesans-serif;
             background: linear-gradient(135deg, #1A2350 0%, #1FA2FF 100%);
             background-attachment: fixed;
             min-height: 100vh;
@@ -605,9 +605,9 @@
                 console.log('Session data loaded:', data);
 
                 sessionData = {};
-                // data.forEach(item => {
+                data.forEach(item => {
                     if (item.url) sessionData[item.url.toString()] = item;
-                // });
+                });
 
                 console.log('Session data mapped:', sessionData);
                 
